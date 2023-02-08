@@ -15,8 +15,8 @@ export class AppComponent implements OnInit {
   })
   viewContainerRef!: ViewContainerRef;
 
-  components = new Map<string, ComponentRef<any>>();
-  index: number = 0;
+  //components = new Map<string, ComponentRef<any>>();
+  //index: number = 0;
 
   Button1 = 'Add Countdown';
   Button2 = 'Add Current Time';
@@ -29,35 +29,38 @@ export class AppComponent implements OnInit {
   public ngOnInit(): void {}
 
   ButtonAction1 = () => {
-    this.createComponent(CountDownFieldComponent);
+    // this.createComponent(CountDownFieldComponent);
+    this.viewContainerRef.createComponent(CountDownFieldComponent);
   };
 
   ButtonAction2 = () => {
-    this.createComponent(CurrentDateFieldComponent);
+    // this.createComponent(CurrentDateFieldComponent);
+    this.viewContainerRef.createComponent(CurrentDateFieldComponent);
   };
 
   createComponent(componentName: any) {
-    let uniqueId = componentName.name + this.index;
-    const componentRef = this.viewContainerRef.createComponent(componentName);
-    (componentRef.instance as any).count = this.countDownValue;
-    (componentRef.instance as any).id = uniqueId;
-    console.log('id added on create ', uniqueId);
-    (componentRef.instance as any).closed.subscribe((res: any) => {
-      console.log('id received on close ', res.id, componentRef);
-      this.deleteComponent(res.id);
-    });
-    this.components.set(componentName, componentRef);
-    this.index++;
+    // let uniqueId = componentName.name + this.index;
+    // const componentRef = this.viewContainerRef.createComponent(componentName);
+    this.viewContainerRef.createComponent(componentName);
+    // (componentRef.instance as any).count = this.countDownValue;
+    // (componentRef.instance as any).id = uniqueId;
+    // console.log('id added on create ', uniqueId);
+    // (componentRef.instance as any).closed.subscribe((res: any) => {
+    //   console.log('id received on close ', res.id, componentRef);
+    //   this.deleteComponent(res.id);
+    // });
+    //this.components.set(componentName, componentRef);
+    //this.index++;
   }
 
-  deleteComponent(id: any) {
-    const componentToDelete = Array.from(this.components.values()).find((componentRef) => componentRef.instance.id === id);
-    console.log(id, componentToDelete, this.components);
-    if (componentToDelete) {
-      (componentToDelete as any).destroy();
-      this.components.delete(componentToDelete as any);
-    }
-  }
+  // deleteComponent(id: any) {
+  //   const componentToDelete = Array.from(this.components.values()).find((componentRef) => componentRef.instance.id === id);
+  //   console.log(id, componentToDelete, this.components);
+  //   if (componentToDelete) {
+  //     (componentToDelete as any).destroy();
+  //     this.components.delete(componentToDelete as any);
+  //   }
+  // }
 
   updateCountDownValue(e: any) {
     this.countDownValue = e.target.value * 60;

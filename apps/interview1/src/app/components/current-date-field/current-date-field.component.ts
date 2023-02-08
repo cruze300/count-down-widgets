@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { CurrentDateService } from '../../current-date.service';
 
 @Component({
@@ -7,18 +7,23 @@ import { CurrentDateService } from '../../current-date.service';
   styleUrls: ['./current-date-field.component.scss'],
 })
 export class CurrentDateFieldComponent implements OnInit {
-  @Input() label: any;
-  @Input() id: any;
-  @Output() closed = new EventEmitter<any>();
+  @Input() label!: any;
+  //@Input() id: any;
+  //@Output() closed = new EventEmitter<any>();
   //removeCount: boolean = true;
 
-  constructor( private currentDateService: CurrentDateService ) { 
-    this.label = this.currentDateService.addCurrentTime(); 
+  newCurrentTime = new Date().getTime() / 1000;
+
+  constructor( private currentDateService: CurrentDateService ) { }
+
+  ngOnInit(): void {
+    this.label = this.currentDateService.newCurrentTime.subscribe((res: any) => {
+      this.newCurrentTime = res;
+    });
   }
 
-  ngOnInit(): void {}
+  // close() {
+  //   this.closed.emit({ id: this.id });
+  // }
 
-  close() {
-    this.closed.emit({ id: this.id });
-  }
 }

@@ -1,5 +1,6 @@
 import { getLocaleTimeFormat } from '@angular/common';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -7,6 +8,12 @@ import { Injectable } from '@angular/core';
 export class CurrentDateService {
 
   constructor() { }
+
+  newCurrentTime = new Observable((observer: any) => {
+    setInterval(() => {
+      observer.next(new Date().getTime() / 1000);
+    }, 500);
+  });
 
   addCountDown(seconds: any) {
     let currentTime = seconds; // Default to 300 seconds = 5 minutes
