@@ -1,0 +1,49 @@
+.main-wrap {
+  display: flex;
+  flex-direction: column;
+  width: calc(100vw);
+  height: calc(100vh);
+  .header {
+    width: 100%;
+    background: #80808040;
+    padding: 10px 0;
+    button {
+      padding: 10px;
+      margin: 0 0 0 10px;
+      cursor: pointer;
+      height: 38px;
+      &.red {
+        background-color: #f00;
+        color: #fff;
+        border: 1px solid #f00;
+        border-radius: 2px;
+      }
+      &.blue {
+        background-color: #00f;
+        color: #fff;
+        border: 1px solid #00f;
+        border-radius: 2px;
+      }
+    }
+    input[type="number"] {
+      padding: 10px;
+      height: 16px;
+      border: 1px solid rgba(128, 128, 128, 0.2509803922);
+      border-radius: 2px;
+      width: 50px;
+    }
+  }
+  .labelContainer {
+    width: 100%;
+    display: flex;
+    padding: 10px;
+    column-gap: 5px;
+    row-gap: 5px;
+    flex-wrap: wrap;
+  }
+}
+
+
+
+
+

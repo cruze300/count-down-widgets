@@ -1,0 +1,17 @@
+<div class="main-wrap">
+  <div class="header">
+    <button [ngClass]="ButtonClass1" (click)="ButtonAction1()">
+      {{Button1}}
+    </button>
+    <!-- <input type="number" id="mins" name="mins" min="1" max="60" value="5" (input)="updateCountDownValue($event)"> -->
+    <button [ngClass]="ButtonClass2" (click)="ButtonAction2()">
+      {{Button2}}
+    </button>
+  </div>
+  
+  <div class="labelContainer">
+    <ng-template #labelContainer>
+    </ng-template>
+  </div>
+</div>
+
