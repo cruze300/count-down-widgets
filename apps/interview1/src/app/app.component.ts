@@ -38,10 +38,10 @@ export class AppComponent implements OnInit {
     this.viewContainerRef.createComponent(CurrentDateFieldComponent);
   };
 
-  createComponent(componentName: any) {
+  //createComponent(componentName: any) {
     // let uniqueId = componentName.name + this.index;
     // const componentRef = this.viewContainerRef.createComponent(componentName);
-    this.viewContainerRef.createComponent(componentName);
+    //this.viewContainerRef.createComponent(componentName);
     // (componentRef.instance as any).count = this.countDownValue;
     // (componentRef.instance as any).id = uniqueId;
     // console.log('id added on create ', uniqueId);
@@ -51,7 +51,7 @@ export class AppComponent implements OnInit {
     // });
     //this.components.set(componentName, componentRef);
     //this.index++;
-  }
+  //}
 
   // deleteComponent(id: any) {
   //   const componentToDelete = Array.from(this.components.values()).find((componentRef) => componentRef.instance.id === id);

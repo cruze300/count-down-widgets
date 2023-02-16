@@ -12,7 +12,7 @@ export class CurrentDateService {
   newCurrentTime = new Observable((observer: any) => {
     setInterval(() => {
       observer.next(new Date().getTime() / 1000);
-    }, 500);
+    }, 1000);
   });
 
   addCountDown(seconds: any) {
